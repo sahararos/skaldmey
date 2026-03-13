@@ -59,9 +59,16 @@ export const book = defineType({
       type: "string",
     }),
     defineField({
-      name: "description",
-      title: "Book Description",
+      name: "shortDescription",
+      title: "Short Description",
       type: "text",
+      rows: 3,
+    }),
+    defineField({
+      name: "fullDescription",
+      title: "Full Description",
+      type: "text",
+      rows: 8,
     }),
     defineField({
       name: "tags",

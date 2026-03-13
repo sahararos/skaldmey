@@ -4,8 +4,14 @@ import { useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoChatboxEllipsesOutline } from "react-icons/io5";
 
-export default function BookTabs() {
+type BookTabsProps = {
+    shortDescription: string;
+    fullDescription: string;
+};
+
+export default function BookTabs({shortDescription, fullDescription}: BookTabsProps) {
   const [activeTab, setActiveTab] = useState<"about" | "reviews">("about");
+  const [showFullDescription, setShowFullDescription] = useState(false);
 
   return (
     <section className="w-185 max-w-185">
@@ -30,27 +36,26 @@ export default function BookTabs() {
 
         {activeTab === "about" && (
             <section className="pt-10">
-                <div className="font-literata text-lg/7 text-[#3F3F3F]">
+                <div className="font-literata text-lg/8 text-[#3F3F3F]">
                     <p>
-                        Sum leyndarmál fylgja manni ævina á enda.
+                        {shortDescription}
                     </p>
-                    <br />
-                    <p>
-                        Sólveig sér fram á að yfirgefa heimili sitt og flytja á
-                        hjúkrunarheimili vegna heilsubreysts í kjölfar heilablæðingar.
-                        Veikindin eru alvarlegri en þau virtust í fyrstu. Óuppgerð
-                        leyndarmál þjaka hana og draugar fortíðar sækja enn fastar að henni ...
-                    </p>
+                    {showFullDescription && (
+                        <p className="mt-6">{fullDescription}</p>
+                    )}
 
                     <div className="mt-5">
                         <button
                             type="button"
+                            onClick={() => setShowFullDescription((prev) => !prev)}
                             className="flex items-center justify-center gap-1"
                         >
                             <p className="font-montserrat font-semibold text-base text-[#2A2A2A]">
-                                Lesa meira
+                                {showFullDescription ? "Sýna minna" : "Lesa meira"}
                             </p>    
-                            <IoIosArrowForward className="w-5 h-5" />
+                            <IoIosArrowForward 
+                                className={`w-5 h-5 ${showFullDescription ? "rotate-90" : ""}`}
+                            />
                         </button>
                     </div>
                 </div>

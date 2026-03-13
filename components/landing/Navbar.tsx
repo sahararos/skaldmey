@@ -1,15 +1,16 @@
 import Image from "next/image";
 import SearchBar from "../ui/SearchBar";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
     <header className="flex items-center justify-between border-b-2 pb-10 pt-10 border-borderline">
 
       {/* Logo */}
-      <div className="pl-15">
+      <Link href="/" className="pl-15 block cursor-pointer">
         <h1 className="font-bebas text-4xl tracking-wider">Skáldmey</h1>
         <h2 className="font-literata text-base tracking-wider">Rafbókaverslun</h2>
-      </div>
+      </Link>
 
       {/* Search */}
       <div className="flex gap-6">

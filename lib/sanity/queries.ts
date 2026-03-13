@@ -18,7 +18,8 @@ export const bookBySlugQuery = `
     genre,
     pages,
     pubdate,
-    description,
+    shortDescription,
+    fullDescription,
     tags,
     spineColor,
     coverImage{
@@ -28,6 +29,14 @@ export const bookBySlugQuery = `
     }
   }
 `
+
+export const allGenresQuery = `
+*[_type == "genre"]{
+  _id,
+  title,
+  icon
+}
+`;
 
 export const allBooksQuery = `
   *[_type == "book"] | order(title asc){
@@ -42,3 +51,31 @@ export const allBooksQuery = `
     }
   }
 `
+
+export const booksByAuthorQuery = `
+  *[_type == "book" && author == $author && slug.current != $slug] | order(pubdate desc){
+    _id,
+    title,
+    slug,
+    author,
+    coverImage{
+      asset->{
+        url
+      }
+    }
+  }
+`;
+
+export const booksByGenreQuery = `
+  *[_type == "book" && genre == $genre && slug.current != $slug] | order(pubdate desc){
+    _id,
+    title,
+    slug,
+    author,
+    coverImage{
+      asset->{
+        url
+      }
+    }
+  }
+`;

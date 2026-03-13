@@ -25,10 +25,10 @@ export default function BookCard({ title, author, coverImage, slug }: BookCardPr
                     />
                 </div>
                 {/* Book Author */}
-                <h3 className="mt-4 font-literata text-lg leading-6 text-[#2A2A2A] font-semibold">
+                <h3 className="mt-4 font-literata text-lg leading-6 text-[#2A2A2A] font-semibold line-clamp-1 min-h-6">
                     {title}
                 </h3>
-                <p className="mt-1 font-montserrat text-sm text-[#3C3C3C] line-clamp-2 min-h-11">
+                <p className="mt-1 font-montserrat text-sm text-[#3C3C3C] line-clamp-1 min-h-6">
                     {author}
                 </p>
             </Link>

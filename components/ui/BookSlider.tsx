@@ -1,10 +1,4 @@
-import BookCard from "../ui/BookCard"
-import { client } from "@/lib/sanity/client";
-import { allBooksQuery } from "@/lib/sanity/queries";
-
-type BookSliderProps = {
-    bookSliderHeading: string;
-}
+import BookCard from "./BookCard";
 
 type Book = {
   _id: string;
@@ -20,9 +14,15 @@ type Book = {
   };
 };
 
-export default async function BookSlider({bookSliderHeading}: BookSliderProps) {
+type BookSliderProps = {
+    bookSliderHeading: string;
+    books: Book[]
+};
 
-  const books: Book[] = await client.fetch(allBooksQuery);
+
+export default function BookSlider({bookSliderHeading, books}: BookSliderProps) {
+
+  if (!books || !books.length) return null;
 
   return (
     <section className="px-15 py-30">

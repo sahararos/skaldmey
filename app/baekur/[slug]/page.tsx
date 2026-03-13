@@ -5,9 +5,13 @@ import BookRating from "@/components/AboutBook/BookRating";
 import BookTag from "@/components/ui/BookTag";
 import AboutBookCard from "@/components/ui/AboutBookCard";
 import BookInfoContent from "@/components/AboutBook/BookInfoContent";
-import BookSlider from "@/components/landing/BookSlider";
+import BookSlider from "@/components/ui/BookSlider";
 import { client } from "@/lib/sanity/client";
-import { bookBySlugQuery } from "@/lib/sanity/queries";
+import { 
+  bookBySlugQuery,
+  booksByAuthorQuery,
+  booksByGenreQuery
+} from "@/lib/sanity/queries";
 
 type AboutBookPageProps = {
   params: Promise<{
@@ -19,6 +23,16 @@ export default async function AboutBookPage({ params }: AboutBookPageProps) {
   const { slug } = await params;
 
   const book = await client.fetch(bookBySlugQuery, { slug });
+  
+  const moreByAuthor = await client.fetch(booksByAuthorQuery, {
+    author: book.author,
+    slug,
+  });
+
+  const relatedBooks = await client.fetch(booksByGenreQuery, {
+    genre: book.genre,
+    slug,
+  })
   
   if (!book) {
     return (
@@ -64,17 +78,22 @@ export default async function AboutBookPage({ params }: AboutBookPageProps) {
                 pubdate={String(book.pubdate)}
                 pages={`${book.pages} bls.`}
               />
-              <BookTabs />
+              <BookTabs 
+                shortDescription={book.shortDescription || ""}
+                fullDescription={book.fullDescription || ""}
+              />
             </div>
           </section>
           <section className="w-full border-t-2 border-borderline">
             <BookSlider 
               bookSliderHeading="Fleira eftir höfund"
+              books={moreByAuthor}
             />
           </section>
           <section className="w-full border-t-2 border-borderline">
             <BookSlider 
               bookSliderHeading="Tengdar bækur"
+              books={relatedBooks}
             />
           </section>
         </main>
