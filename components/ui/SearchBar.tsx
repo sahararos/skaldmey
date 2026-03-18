@@ -1,47 +1,46 @@
 "use client";
 
-import { client } from "@/lib/sanity/client";
 import SearchButton from "./SearchButton";
 // import { useState } from "react";
 
-const books = [
-  {
-    id: 1,
-    title: "Sálarstríð",
-    author: "Steindór Ívarsson",
-    coverImage: "/bookcovers/salarstrid.png",
-  },
-  {
-    id: 2,
-    title: "sálartjón",
-    author: "Alison Espach",
-    coverImage: "/bookcovers/brudkaupsfolkid.png",
-  },
-  {
-    id: 3,
-    title: "Eftirför",
-    author: "Anna Rún Frímannsdóttir",
-    coverImage: "/bookcovers/eftirfor.png",
-  },
-  {
-    id: 4,
-    title: "Mín er hefndin",
-    author: "Nanna Rögnvaldardóttir",
-    coverImage: "/bookcovers/minerhefndin.png",
-  },
-  {
-    id: 5,
-    title: "Svikabirta",
-    author: "Ingi Markússon",
-    coverImage: "/bookcovers/svikabirta.png",
-  },
-  {
-    id: 6,
-    title: "Syndafall",
-    author: "Yrsa Sigurðardóttir",
-    coverImage: "/bookcovers/syndafall.png",
-  },
-];
+// const books = [
+//   {
+//     id: 1,
+//     title: "Sálarstríð",
+//     author: "Steindór Ívarsson",
+//     coverImage: "/bookcovers/salarstrid.png",
+//   },
+//   {
+//     id: 2,
+//     title: "sálartjón",
+//     author: "Alison Espach",
+//     coverImage: "/bookcovers/brudkaupsfolkid.png",
+//   },
+//   {
+//     id: 3,
+//     title: "Eftirför",
+//     author: "Anna Rún Frímannsdóttir",
+//     coverImage: "/bookcovers/eftirfor.png",
+//   },
+//   {
+//     id: 4,
+//     title: "Mín er hefndin",
+//     author: "Nanna Rögnvaldardóttir",
+//     coverImage: "/bookcovers/minerhefndin.png",
+//   },
+//   {
+//     id: 5,
+//     title: "Svikabirta",
+//     author: "Ingi Markússon",
+//     coverImage: "/bookcovers/svikabirta.png",
+//   },
+//   {
+//     id: 6,
+//     title: "Syndafall",
+//     author: "Yrsa Sigurðardóttir",
+//     coverImage: "/bookcovers/syndafall.png",
+//   },
+// ];
 
 export default function SearchBar() {
   // const [searchTerm, setSearchTerm] = useState("");
@@ -51,11 +50,11 @@ export default function SearchBar() {
   // );
 
   return (
-    <div className="flex items-start gap-6">
-      <div className="relative">
+    <div className="flex w-full items-start gap-3 md:gap-4 lg:gap-6">
+      <div className="relative min-w-0 flex-1">
         <div
           className="
-          flex h-14 w-112.5 items-center
+          flex h-14 w-full items-center
           rounded-2xl
           bg-[#F5F5F5]
           px-2 py-1
@@ -64,11 +63,9 @@ export default function SearchBar() {
         >
           <div
             className="
-            flex h-10 w-108.5 items-center
-            rounded-xl
-            border-2 border-[#C7C7C7] hover:border-[#ACACAC]
-            bg-transparent
-            px-4
+            flex h-10 w-full items-center
+            rounded-xl border-2 border-[#C7C7C7] bg-transparent px-3
+            hover:border-[#ACACAC]
             "
           >
             <input
@@ -78,9 +75,9 @@ export default function SearchBar() {
               // onChange={(e) => setSearchTerm(e.target.value)}
               className="
               w-full bg-transparent
-              font-montserrat text-sm tracking-wider
-              outline-none
+              font-montserrat text-sm tracking-wide outline-none
               placeholder:text-[#8D8D8D]
+              md:text-base 
               "
             />
           </div>

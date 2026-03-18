@@ -1,97 +1,89 @@
 import GenreButton from "../ui/GenreButton";
-import {
-  IoPlanetOutline,
-  IoHeartOutline,
-  IoSearchOutline,
-  IoBookOutline
-} from "react-icons/io5";
+import { PiSwordLight, PiCaretLeft, PiGhostLight, PiPlanetLight, PiLightningThin, PiCoffeeLight, PiCrownSimpleLight, PiHeartLight } from "react-icons/pi";
+// import { TbGhost } from "react-icons/tb";
+import { CiSearch } from "react-icons/ci";
+// import { IoIosHeartEmpty } from "react-icons/io";
 
-import {
-  PiSword,
-  PiCrownSimple,
-  PiFlower
-} from "react-icons/pi";
 
-import {
-  TbGhost,
-  TbMask
-} from "react-icons/tb";
 
-import {
-  VscCoffee
-} from "react-icons/vsc";
-
-import {
-  BsLightning,
-  BsBullseye
-} from "react-icons/bs";
-
-import {
-  FaBasketballBall,
-  FaFeatherAlt,
-  FaUser,
-  FaHourglassHalf
-} from "react-icons/fa";
-
-const iconMap = {
-  planet: IoPlanetOutline,
-  sword: PiSword,
-  ghost: TbGhost,
-  coffee: VscCoffee,
-  lightning: BsLightning,
-  crown: PiCrownSimple,
-  heart: IoHeartOutline,
-  search: IoSearchOutline,
-
-  ball: FaBasketballBall,
-  quill: FaFeatherAlt,
-  masks: TbMask,
-  hourglass: FaHourglassHalf,
-  books: IoBookOutline,
-  bullseye: BsBullseye,
-  user: FaUser,
-  flower: PiFlower,
-  heartlock: PiFlower, // Placeholder for heartlock icon
-  runes: PiFlower, // Placeholder for runes icon
-  mobile: PiFlower, // Placeholder for mobile icon
-  studentcap: PiFlower, // Placeholder for studentcap icon
-  bear: PiFlower, // Placeholder for bear icon
-  fountainpen: PiFlower, // Placeholder for fountainpen icon
-};
-
-type Genre = {
-  _id: string;
-  title: string;
-  icon?: keyof typeof iconMap; 
-};
-
-type GenreSectionProps = {
-  genres: Genre[];
-};
-
-export default function GenreSection({genres}: GenreSectionProps) {
+export default function GenreSection() {
   return (
-    <section className="border-b-2 border-borderline py-30">
+    <section className="border-t-2 border-borderline py-10 lg:py-30 lg:px-15">
       <div className="flex flex-col items-center justify-center">
-        <h1 className="font-literata text-[140px] font-normal leading-27.5 tracking-wide text-[#C1C1C1]">
+          {/* Mobile version */}
+         <h1 className="font-literata text-6xl font-normal tracking-wide text-[#C1C1C1] hover:text-[#A3A3A3] block md:hidden"
+        >
+          BÓKA-
+          <br />
+          FLOKKAR
+        </h1>
+
+        {/* Desktop and tablet version */}
+        <h1 className="font-literata font-normal tracking-wide text-[#C1C1C1] hover:text-[#A3A3A3]
+                      md:text-[100px] lg:text-[140px] hidden md:block
+                      "
+        >
           BÓKAFLOKKAR
         </h1>
 
-        <div className="mt-20 w-full overflow-x-auto hide-scrollbar scroll-smooth">
-          <div className="flex w-max gap-10 px-15">
-            {genres.map((genre) => {
-              const Icon = genre.icon ? iconMap[genre.icon] : IoSearchOutline;
+        <div className="relative mt-4 w-full">
 
-              return (
-                <GenreButton
-                  key={genre._id}
-                  text={genre.title}
-                  icon={<Icon className="h-10 w-12 text-[#2A2A2A]" />}
-                />
-              );
-            })}
+          {/* Left arrow */}
+          {/* <button
+            type="button"
+            className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 z-10"
+          >
+            <PiCaretLeft className="text-3xl text-[#C1C1C1] scale-200" />
+          </button> */}
+
+          {/* Right arrow */}
+          {/* <button
+            type="button"
+            className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 z-10"
+          >
+            <PiCaretLeft className="rotate-180 text-3xl text-[#C1C1C1] scale-200" />
+          </button> */}
+
+          {/* Scroll area */}
+          <div className="overflow-x-auto hide-scrollbar scroll-smooth px-4 :px-20">
+            <div className="flex min-w-full justify-center gap-6 md:gap-9 py-6 items-center">
+              <GenreButton
+                text="SciFi"
+                icon={<PiPlanetLight className="h-11 w-11 md:h-14 md:w-14 text-[#2A2A2A]" />}
+              />
+              <GenreButton
+                text="Fantasíu"
+                icon={<PiSwordLight className="h-11 w-11 md:h-14 md:w-14 text-[#2A2A2A]" />}
+              />
+              <GenreButton
+                text="Hrollvekjur"
+                icon={<PiGhostLight className="h-11 w-11 md:h-14 md:w-14 text-[#2A2A2A]" />}
+              />
+              <GenreButton
+                text="Smásögur"
+                icon={<PiCoffeeLight className="h-11 w-11 md:h-14 md:w-14 text-[#2A2A2A]" />}
+              />
+              <GenreButton
+                text="Spennu"
+                icon={<PiLightningThin className="h-11 w-11 md:h-14 md:w-14 text-[#2A2A2A]" />}
+              />
+              <GenreButton
+                text="Sögulegar"
+                icon={<PiCrownSimpleLight className="h-11 w-11 md:h-14 md:w-14 text-[#2A2A2A]" />}
+              />
+              <GenreButton
+                text="Rómantík"
+                icon={<PiHeartLight className="h-11 w-11 md:h-14 md:w-14 text-[#2A2A2A]" />}
+              />
+              <GenreButton
+                text="Ljóð"
+                icon={<CiSearch className="h-11 w-11 md:h-14 md:w-14 text-[#2A2A2A]" />}
+              />
+              
+            </div>
           </div>
         </div>
+        
       </div>
     </section>
   );

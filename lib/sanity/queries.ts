@@ -7,7 +7,7 @@ export const homepageQuery = `
       }
     }
   }
-`
+`;
 
 export const bookBySlugQuery = `
   *[_type == "book" && slug.current == $slug][0]{
@@ -28,18 +28,10 @@ export const bookBySlugQuery = `
       }
     }
   }
-`
-
-export const allGenresQuery = `
-*[_type == "genre"]{
-  _id,
-  title,
-  icon
-}
 `;
 
 export const allBooksQuery = `
-  *[_type == "book"] | order(title asc){
+  *[_type == "book"] | order(pubdate asc){
     _id,
     title,
     slug,
@@ -50,7 +42,7 @@ export const allBooksQuery = `
       }
     }
   }
-`
+`;
 
 export const booksByAuthorQuery = `
   *[_type == "book" && author == $author && slug.current != $slug] | order(pubdate desc){

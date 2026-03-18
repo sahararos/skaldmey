@@ -1,11 +1,12 @@
 import Navbar from "@/components/landing/Navbar";
-import Hero from "@/components/landing/Hero";
+// import Hero from "@/components/landing/Hero";
 import GenreSection from "@/components/landing/GenreSection";
 import BookSlider from "@/components/ui/BookSlider";
 import Promo from "@/components/landing/Promo";
 import Footer from "@/components/landing/Footer";
 import { client } from "@/lib/sanity/client";
-import { allBooksQuery, allGenresQuery } from "@/lib/sanity/queries";
+import { allBooksQuery } from "@/lib/sanity/queries";
+import Testing from "@/components/landing/Testing";
 
 type Book = {
   _id: string;
@@ -22,27 +23,23 @@ type Book = {
 };
 
 export default async function Home() {
-
-  const books: Book[] = await client.fetch(allBooksQuery);
-
-  const genres = await client.fetch(allGenresQuery);
+  const allBooks: Book[] = await client.fetch(allBooksQuery);
 
   return (
     <>
       <main className="flex-1">
         <Navbar />
-        <Hero />
-        <GenreSection 
-          genres={genres}
-        />
-        <BookSlider 
+        <Testing />
+        <GenreSection />
+        <BookSlider
           bookSliderHeading="Vinsælar bækur"
-          books={books}
+          books={allBooks}
         />
         <Promo />
-        <BookSlider 
+        
+        <BookSlider
           bookSliderHeading="Mest lesið"
-          books={books}
+          books={allBooks}
         />
       </main>
       <Footer />
