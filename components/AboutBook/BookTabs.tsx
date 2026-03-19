@@ -96,6 +96,8 @@
 import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { IoChatboxEllipsesOutline } from "react-icons/io5";
+import { IoStar } from "react-icons/io5";
+import { IoIosStarOutline } from "react-icons/io";
 
 type BookTabsProps = {
   shortDescription: string;
@@ -174,6 +176,36 @@ export default function BookTabs({
               <span className="font-montserrat text-base font-medium text-[#3F3F3F]">
                 Skrifa umsögn
               </span>
+            </button>
+          </div>
+          <div className="flex flex-col items-start">
+            <h1 className="mt-8 font-montserrat text-xl md:text-2xl font-medium text-[#5B5B5B]">
+              Steindór slær í gegn!
+            </h1>
+            <div className="flex items-center justify-center mt-3 mb-6 gap-2 lg:justify-start">
+              <IoStar className="w-4 h-4 md:w-5 md:h-5 text-[#5B5B5B]" />
+              <IoStar className="w-4 h-4 md:w-5 md:h-5 text-[#5B5B5B]" />
+              <IoStar className="w-4 h-4 md:w-5 md:h-5 text-[#5B5B5B]" />
+              <IoStar className="w-4 h-4 md:w-5 md:h-5 text-[#5B5B5B]" />
+              <IoIosStarOutline className="w-4 h-4 md:w-5 md:h-5 text-[#5B5B5B]" />     
+            </div>
+            <h2 className="italic font-montserrat text-lg md:text-xl font-medium text-[#5B5B5B]">
+              Kalli Kallason skrifar
+            </h2>
+            <p className="mt-2 mb-2 font-literata text-base md:text-lg font-medium text-[#5B5B5B]">
+              Hvernig fer hann að þessu? Bókin heldur manni frá fyrstu blaðsíðu.
+              Ég gat ekki lagt hana frá mér. Ég mæli með!
+            </p>
+            <button
+                type="button"
+                className="flex items-center justify-center gap-1"
+            >
+                <p className="font-montserrat font-semibold text-sm md:text-base text-[#2A2A2A]">
+                  Lesa meira
+                </p>    
+                <IoIosArrowForward 
+                    className="w-4 h-4"
+                />
             </button>
           </div>
         </div>

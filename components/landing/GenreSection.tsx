@@ -8,7 +8,7 @@ import { CiSearch } from "react-icons/ci";
 
 export default function GenreSection() {
   return (
-    <section className="border-t-2 border-borderline py-10 lg:py-30 lg:px-15">
+    <section className="border-t-2 border-borderline py-10 lg:py-20 lg:px-15">
       <div className="flex flex-col items-center justify-center">
           {/* Mobile version */}
          <h1 className="font-literata text-6xl font-normal tracking-wide text-[#C1C1C1] hover:text-[#A3A3A3] block md:hidden"

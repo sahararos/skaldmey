@@ -3,7 +3,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 export default function Promo() {
   return (
-    <section className="overflow-hidden py-10 px-4 md:px-6 lg:px-15 lg:py-15">
+    <section className="overflow-hidden py-10 px-4 md:px-6 lg:px-15 lg:py-15 lg:pb-15">
       <div className="flex flex-col gap-8 md:flex-row md:items-center md:gap-8 lg:gap-12">
         
         {/* Image */}

@@ -1,12 +1,12 @@
 import Navbar from "@/components/landing/Navbar";
-// import Hero from "@/components/landing/Hero";
+import Hero from "@/components/landing/Hero";
 import GenreSection from "@/components/landing/GenreSection";
 import BookSlider from "@/components/ui/BookSlider";
 import Promo from "@/components/landing/Promo";
 import Footer from "@/components/landing/Footer";
 import { client } from "@/lib/sanity/client";
 import { allBooksQuery } from "@/lib/sanity/queries";
-import Testing from "@/components/landing/Testing";
+// import Testing from "@/components/landing/Testing";
 
 type Book = {
   _id: string;
@@ -29,7 +29,7 @@ export default async function Home() {
     <>
       <main className="flex-1">
         <Navbar />
-        <Testing />
+        <Hero />
         <GenreSection />
         <BookSlider
           bookSliderHeading="Vinsælar bækur"

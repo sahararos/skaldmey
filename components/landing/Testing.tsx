@@ -1,38 +1,48 @@
 import Image from "next/image";
 
-export default function Testing() {
+export default function Hero() {
   return (
-    <>
-        <section className="flex flex-col bg-[#E3E3E3] h-auto lg:flex-row">
-            <div className="relative h-100 w-full overflow-hidden">
-                <Image 
-                    src="/Hero/bookstash.png"
-                    alt="Books"
-                    fill
-                    className="object-cover object-top scale-110 -translate-y-3"
-                />
-                {/* fade overlay */}
-                <div className="pointer-events-none absolute bottom-0 left-0 w-full h-4 bg-linear-to-b from-transparent via-[#E3E3E3]/40 to-[#E3E3E3]" />
-            </div>
-            <div className="flex flex-col justify-center items-center pt-10 pb-15">
-                <div className="w-75">
-                    <h1 className="font-bebas text-6xl tracking-wide text-[#4b4b4b] md:text-7xl lg:text-8xl">
-                        Allar bækur
-                        <br />
-                        á einum stað
-                    </h1>
-                    <p className="font-literata text-[#3C3C3C] text-base tracking-wider pt-2 pb-5 md:text-base lg:text-xl">
-                        Skoðaðu úrvalið af rafbókum
-                    </p>
-                     <button className="bg-[#010101] py-2 px-4 rounded-xl shadow-[0px_10px_20px_rgba(0,0,0,0.25)] gap-2 flex items-center justify-center">
-                        <span className="font-montserrat text-xs md:text-base font-medium tracking-widest text-[#f5f5f5] md:font-xl">
-                            Skoða meira
-                        </span>
-                    </button>
-                </div>
-            </div>
-        </section>
-    </>
+    <section className="w-full border-b border-borderline px-4 py-6 md:px-8 md:py-8 lg:px-20 lg:py-10 xl:px-32">
+      <div className="mx-auto flex max-w-400 flex-col items-center lg:flex-row lg:items-center lg:gap-8">
+        {/* IMAGE */}
+        <div className="order-1 w-full lg:order-2 lg:w-[50%]">
+          <div className="flex justify-center lg:justify-end">
+            <Image
+              src="/Hero/bookstash4.png"
+              alt="Bækur"
+              width={1100}
+              height={1000}
+              priority
+              className="h-auto w-full max-w-105 object-contain md:max-w-140 lg:max-w-215 xl:max-w-230 lg:-translate-x-12 lg:-translate-y-4"
+            />
+          </div>
+        </div>
 
+        {/* TEXT */}
+        <div className="order-2 flex w-full items-center justify-center pt-6 lg:order-1 lg:w-[50%] lg:justify-start lg:pt-0">
+          <div className="w-full max-w-180 text-center lg:text-left">
+            <div className="rounded-2xl bg-[#d9d9d9] px-8 py-10 md:px-12 md:py-12 lg:max-w-140 lg:px-16 lg:py-16">
+              <h1 className="font-bebas text-5xl leading-[0.9] tracking-wide text-[#3C3C3C] md:text-7xl lg:text-[86px] xl:text-[94px]">
+                <span className="whitespace-nowrap">Allar bækur</span>
+                <br />
+                á einum stað
+              </h1>
+
+              <p className="pb-6 pt-5 font-literata text-base tracking-wide text-[#4B4B4B] md:text-xl lg:max-w-95">
+                Skoðaðu úrvalið okkar af rafbókum
+              </p>
+
+              <div className="flex justify-center lg:justify-start">
+                <button className="rounded-xl bg-black px-5 py-2 text-white shadow-[0px_10px_20px_rgba(0,0,0,0.25)]">
+                  <span className="font-montserrat text-sm font-medium tracking-widest">
+                    Skoða nánar
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
