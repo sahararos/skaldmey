@@ -93,6 +93,7 @@ export const book = defineType({
           "Hannyrðir",
           "Uppskriftabækur",
           "Óskáldað efni",
+          "Myndasögur",
         ],
       },
       validation: (Rule) => Rule.required(),
