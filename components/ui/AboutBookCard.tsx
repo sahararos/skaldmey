@@ -29,7 +29,7 @@ export default function AboutBookCard({
                     style={{ backgroundColor: spineColor || "#191919" }}
                 >
                     {/* Left vertical line */}
-                    <div className="absolute left-2.5 top-0 h-full w-px bg-[#464646] z-10"></div>
+                    <div className="absolute left-2.5 top-0 h-full w-px bg-[#686868] z-10"></div>
 
                     {/* Book cover image */}
                     <div className="absolute inset-y-0 right-0 left-2.5">

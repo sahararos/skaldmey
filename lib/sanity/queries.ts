@@ -71,3 +71,18 @@ export const booksByGenreQuery = `
     }
   }
 `;
+
+export const searchBooksQuery = `
+  *[
+    _type == "book" &&
+    (
+      title match $search + "*" ||
+      author match $search + "*"
+    )
+  ][0...5]{
+    _id,
+    title,
+    author,
+    slug
+  }
+`;

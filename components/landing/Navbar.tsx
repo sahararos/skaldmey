@@ -12,11 +12,11 @@ export default function Navbar() {
         {/* Left (logo) */}
         <div className="flex flex-1">
           <Link href="/" className="cursor-pointer shrink-0">
-            <h1 className="font-bebas text-2xl tracking-wider md:text-3xl lg:text-4xl">
+            <h1 className="font-bebas text-2xl tracking-wider md:text-3xl lg:text-4xl text-[#2A2A2A]">
               Skáldmey
             </h1>
-            <h2 className="font-literata text-xs tracking-wider md:text-sm lg:text-base">
-              Rafbókaverslun
+            <h2 className="font-literata text-xs tracking-wider md:text-sm lg:text-base text-[#2A2A2A]">
+              Rafbókaverzlun
             </h2>
           </Link>
         </div>
